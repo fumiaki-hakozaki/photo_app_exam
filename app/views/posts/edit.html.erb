@@ -1,16 +1,20 @@
-<%= form_with(model: @post, local:true) do |form| %>
+<%= form_with(model: @post, local: true) do |form| %>
   <% if @post.errors.any? %>
-   <div id="error_explanation">
-    <h2><%= @post.errors.count %>件のエラーがあります！</h2>
-    <ul>
+    <div id="error_explanation">
+      <h2><%= @post.errors.count %>件のエラーがあります。</h2>
+      <ul>
 
-    <%= @post.errors.full_messages.each do |msg| %>
-     <li><% msg %><li>
-    <% end %>
-    </ul>
-   </div>
-  <% end %>
-    
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+   <% end %>
+
+     <div class="post_field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
   <div class="post_title">
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -20,5 +24,6 @@
     <%= form.text_field :content %>
   </div>
   <%= form.submit %>
-  <%= form.submit '戻る', name: 'back'%>
+  <%= form.submit '戻る', name: 'back' %>
+
 <% end %>

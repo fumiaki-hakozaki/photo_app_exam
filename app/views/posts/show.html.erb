@@ -5,9 +5,9 @@
 <p id= "notice"><%= notice %></p>
 
 <p>
-  <strong>Image:</strong>
+  <strong>画像:</strong>
   <%= image_tag @post.image.url %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %>
-<%= link_to 'Back', post_path %>
+<%= link_to '編集', edit_post_path(@post) %>
+<%= link_to '戻る', posts_path %>
