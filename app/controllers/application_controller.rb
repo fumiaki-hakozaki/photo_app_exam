@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    protect_form_forgery with: :exceotion
+    protect_from_forgery with: :exception
     include SessionsHelper
     before_action :login_required
 
