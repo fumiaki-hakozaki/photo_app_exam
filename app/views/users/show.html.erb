@@ -2,10 +2,10 @@
 
 <p>メールアドレス: <%= @user.email %></p>
 
-<p>
-    <strong>画像:</strong>
-    <%= image_tag @user.image.url if @user.image && @user.image.url %>
-</p>
+<strong>画像:</strong>
+
+<p><%= image_tag @user.image.url if @user.image && @user.image.url %></p>
+
 
 <%= link_to 'プロフィール編集する', edit_user_path(@user.id) %>
 
