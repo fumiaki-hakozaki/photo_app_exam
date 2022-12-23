@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'posts#index'
+  resources :favorites, only: :index
   resources :posts do
     collection do
       post :confirm
