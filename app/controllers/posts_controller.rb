@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :ensure_user, only: [:edit, :update, :destroy]
+  
   def index
     @post = Post.all
   end
@@ -64,6 +66,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title,:content,:image,:image_cache)
+  end
+
+   def ensure_user
+    @posts = current_user.posts
+    @post = @posts.find_by(id: params[:id])
+    redirect_to new_post_path unless @post
   end
 
 end

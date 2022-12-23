@@ -1,6 +1,6 @@
 <h1>写真＆ブログ一覧</h1>
 
-<p><%= notice %></p>
+<h2>ログインユーザー名:<%= @current_user.name %></h2>
 
 <table>
     <tr>
@@ -17,8 +17,12 @@
         
 
         <td><%= link_to '詳細を確認する',post_path(post.id) %></td>
+        <% if post.user == current_user %>
         <td><%= link_to '写真＆ブログを編集する',edit_post_path(post.id), data: {confirm: '本当に編集しますか？'} %></td>
         <td><%= link_to '写真＆ブログを削除する',post_path(post.id), method: :delete ,data: { confirm: '本当に削除しますか?'} %></td>
+        <% else %>
+        <td></td>
+        <% end %>
     </tr>
 <% end %>
 </table>
@@ -26,5 +30,4 @@
 <br>
 
 <%= link_to '新しく写真＆ブログを投稿する',new_post_path %>
-
 
