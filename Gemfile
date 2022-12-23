@@ -43,4 +43,6 @@ group :development do
 gem 'net-imap'
 gem 'net-pop'
 
+gem 'faker'
+
 end
